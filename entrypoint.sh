@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-composer install --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
  mkdir storage
         cd storage
         mkdir logs
@@ -17,6 +17,6 @@ cp .env.ci .env
 touch database/reporting.sqlite
 php artisan key:generate
 
-php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed --force
 
 php vendor/bin/phpunit --verbose
